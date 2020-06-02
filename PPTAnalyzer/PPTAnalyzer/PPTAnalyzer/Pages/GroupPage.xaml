@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ctrl="clr-namespace:PPTAnalyzer.Controls"
+             Appearing="ContentPage_Appearing"
+             mc:Ignorable="d"
+             x:Class="PPTAnalyzer.Pages.GroupPage">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Grid HorizontalOptions="FillAndExpand">
+                <Label Text="{Binding GroupName}" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                <Button Text="rename" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" TextColor="Blue" Command="{Binding RenameGroup}"/>
+            </Grid>
+            <ListView ItemTapped="lstView_ItemTapped" SelectionMode="None" ItemsSource="{Binding People}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Name}" TextColor="Blue" LineBreakMode="TailTruncation" VerticalTextAlignment="Center"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid VerticalOptions="EndAndExpand">
+                <Button Text="Add Person" VerticalOptions="Center" HorizontalOptions="End" Command="{Binding AddPerson}"/>
+                <Button Text="Delete Group" VerticalOptions="Center" HorizontalOptions="Start" BackgroundColor="Red" Command="{Binding DeleteGroup}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

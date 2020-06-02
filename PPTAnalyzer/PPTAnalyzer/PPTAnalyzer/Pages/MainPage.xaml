@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PPTAnalyzer.Pages.MainPage"
+             BackgroundColor="White">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Label Text="Physical Proficiency Test" HorizontalTextAlignment="Center" FontSize="Title" TextColor="Black"/>
+        <Label Text="Analyzer" HorizontalTextAlignment="Center" FontSize="Title" Margin="0,0,0,20" TextColor="Black"/>
+        <ImageButton Clicked="Login_Clicked" Aspect="AspectFit" Source="googlesignin.png" BackgroundColor="Transparent">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="Source" Value="googlesignin.png" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Source" Value="googlesigninpressed.png" />
+                        </VisualState.Setters>
+                    </VisualState>
+
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </ImageButton>
+    </StackLayout>
+
+</ContentPage>

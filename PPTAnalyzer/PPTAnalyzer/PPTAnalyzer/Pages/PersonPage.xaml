@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ctrl="clr-namespace:PPTAnalyzer.Controls"
+             Appearing="ContentPage_Appearing"
+             mc:Ignorable="d"
+             x:Class="PPTAnalyzer.Pages.PersonPage">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Grid HorizontalOptions="CenterAndExpand" Margin="0,0,0,10">
+                <Label Text="Group Name" FontSize="Large" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                <Button Text="View All" TextColor="Blue" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Command="{Binding ViewAll}"/>
+            </Grid>
+            <Label Text="Name" FontSize="Micro" TextColor="Black"/>
+            <Entry Text="{Binding Name, Mode=TwoWay}" Placeholder="Enter name" x:Name="Name"/>
+
+            <ctrl:EntryControl Text="Run" SelectedItem="{Binding Run, Mode=TwoWay}"/>
+            <ctrl:EntryControl Text="Chin up" SelectedItem="{Binding ChinUp, Mode=TwoWay}"/>
+            <ctrl:EntryControl Text="Sit-ups" SelectedItem="{Binding SitUps, Mode=TwoWay}"/>
+            <ctrl:EntryControl Text="Sprint (100m)" SelectedItem="{Binding Sprint100m, Mode=TwoWay}"/>
+            <ctrl:EntryControl Text="Shuttle" SelectedItem="{Binding Shuttle, Mode=TwoWay}"/>
+
+
+
+            <Grid VerticalOptions="EndAndExpand">
+                <Button Text="Save" VerticalOptions="Center" HorizontalOptions="End" Command="{Binding SavePerson}" CommandParameter="{Binding Text, Source={x:Reference Name}}"/>
+                <Button Text="Delete" VerticalOptions="Center" HorizontalOptions="Start" BackgroundColor="Red" Command="{Binding DeletePerson}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
