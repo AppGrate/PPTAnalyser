@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ToolbarPage  xmlns:pages="clr-namespace:PPTAnalyzer.Pages"
+                    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="PPTAnalyzer.Pages.HomePage">
-    <ContentPage.Content>
+    <pages:ToolbarPage.Content>
         <StackLayout Padding="15">
             <Label Text="Group Name" FontSize="Micro" TextColor="Black"/>
             <Entry Placeholder="Enter Group Name" x:Name="GroupName"/>
@@ -24,5 +25,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </pages:ToolbarPage.Content>
+</pages:ToolbarPage>

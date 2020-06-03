@@ -5,7 +5,7 @@ using Xamarin.Forms.Xaml;
 namespace PPTAnalyzer.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GroupPage : ContentPage
+    public partial class GroupPage : ToolbarPage
     {
         public GroupPage()
         {

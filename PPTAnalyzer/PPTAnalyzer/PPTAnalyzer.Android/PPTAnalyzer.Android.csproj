@@ -66,12 +66,12 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoogleDriveService.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="GoogleSignInService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignInResultCallback.cs" />
+    <Compile Include="SignOutResultCallback.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="ToastNotificationService.cs" />
   </ItemGroup>

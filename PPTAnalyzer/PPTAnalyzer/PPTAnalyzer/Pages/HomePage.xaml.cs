@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace PPTAnalyzer.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class HomePage : ToolbarPage
     {
         public HomePage()
         {

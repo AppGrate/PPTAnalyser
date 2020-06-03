@@ -10,44 +10,43 @@ namespace PPTAnalyzer.Pages
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        IGoogleDriveService _service;
+        IGoogleSignInService _signInService;
 
         public MainPage()
         {
             InitializeComponent();
-            _service = DependencyService.Get<IGoogleDriveService>();
-            _service.SignedIn += Service_SignedIn;
+            _signInService = DependencyService.Get<IGoogleSignInService>();
+            _signInService.SignedIn += _signInService_SignedIn;
         }
 
-        private void Service_SignedIn()
+        private async void _signInService_SignedIn(string email)
         {
-            var app = App.Current as App;
-            var nPage = new NavigationPage(new HomePage()
+            if (email == null)
             {
-                BindingContext = new Models.HomeModel
+                await DisplayAlert("Error", "Unable to login. Please try again after sometime", "Ok");
+            }
+            else
+            {
+                var app = App.Current as App;
+                var nPage = new NavigationPage(new HomePage()
                 {
-                    Data = Services.LocalStorageService.GetAllData()
-                }
-            })
-            {
-                BarBackgroundColor = Color.FromHex("2296F3"),
-                BarTextColor = Color.White,
-                Title = "PPT Analyser"
-            };
-            nPage.ToolbarItems.Add(new ToolbarItem("Logout", null, Logout));
-            app.MainPage = nPage;
-        }
-
-        private void Logout()
-        {
-            var app = App.Current as App;
-            app.MainPage = new MainPage();
-            _service.SignOutGoogle();
+                    BindingContext = new Models.HomeModel
+                    {
+                        Data = Services.LocalStorageService.GetAllData()
+                    }
+                })
+                {
+                    BarBackgroundColor = Color.FromHex("2296F3"),
+                    BarTextColor = Color.White,
+                    Title = "PPT Analyser"
+                };
+                app.MainPage = nPage;
+            }
         }
 
         private void Login_Clicked(object sender, EventArgs e)
         {
-            _service.ConnectToGoogle();
+            _signInService.SignIn();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:ToolbarPage  xmlns:pages="clr-namespace:PPTAnalyzer.Pages"
+                    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,7 +8,7 @@
              Appearing="ContentPage_Appearing"
              mc:Ignorable="d"
              x:Class="PPTAnalyzer.Pages.GroupPage">
-    <ContentPage.Content>
+    <pages:ToolbarPage.Content>
         <StackLayout Padding="15">
             <Grid HorizontalOptions="FillAndExpand">
                 <Label Text="{Binding GroupName}" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
@@ -27,5 +28,5 @@
                 <Button Text="Delete Group" VerticalOptions="Center" HorizontalOptions="Start" BackgroundColor="Red" Command="{Binding DeleteGroup}"/>
             </Grid>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </pages:ToolbarPage.Content>
+</pages:ToolbarPage>

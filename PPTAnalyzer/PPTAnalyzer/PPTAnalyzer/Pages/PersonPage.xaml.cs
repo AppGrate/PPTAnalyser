@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace PPTAnalyzer.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PersonPage : ContentPage
+    public partial class PersonPage : ToolbarPage
     {
         public PersonPage()
         {
