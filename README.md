@@ -1,2 +1,2 @@
-# PPTAnalyser
+# PPTAnalyzer
 Physical Proficiency Test
