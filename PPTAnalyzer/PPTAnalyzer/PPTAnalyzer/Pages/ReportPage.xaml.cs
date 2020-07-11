@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PPTAnalyzer.Controls
+namespace PPTAnalyzer.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TitleView : ContentView
+    public partial class ReportPage : ToolbarPage
     {
-        public TitleView()
+        public ReportPage()
         {
             InitializeComponent();
         }

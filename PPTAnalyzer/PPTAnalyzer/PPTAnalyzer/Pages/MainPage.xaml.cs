@@ -1,6 +1,7 @@
 ﻿using PPTAnalyzer.Services;
 using System;
 using System.ComponentModel;
+using System.Text;
 using Xamarin.Forms;
 
 namespace PPTAnalyzer.Pages
@@ -27,26 +28,49 @@ namespace PPTAnalyzer.Pages
             }
             else
             {
-                var app = App.Current as App;
-                var nPage = new NavigationPage(new HomePage()
-                {
-                    BindingContext = new Models.HomeModel
-                    {
-                        Data = Services.LocalStorageService.GetAllData()
-                    }
-                })
-                {
-                    BarBackgroundColor = Color.FromHex("2296F3"),
-                    BarTextColor = Color.White,
-                    Title = "PPT Analyser"
-                };
-                app.MainPage = nPage;
+                LoadMainApp();
             }
+        }
+
+        private void LoadMainApp()
+        {
+            var app = App.Current as App;
+            var nPage = new NavigationPage(new HomePage()
+            {
+                BindingContext = new Models.HomeModel
+                {
+                    Data = Services.LocalStorageService.GetAllData()
+                }
+            })
+            {
+                BarBackgroundColor = Color.FromHex("2296F3"),
+                BarTextColor = Color.White,
+                Title = "PPT Analyser"
+            };
+            app.MainPage = nPage;
         }
 
         private void Login_Clicked(object sender, EventArgs e)
         {
             _signInService.SignIn();
+        }
+
+        private async void Skipped_Clicked(object sender, EventArgs e)
+        {
+            ErrorMessage.IsVisible = false;
+            string result = await DisplayPromptAsync("Passcode", "Enter your passcode");
+            if (result == "admin123")
+            {
+                LoadMainApp();
+            }
+            else if (result == null)
+            {
+                ErrorMessage.IsVisible = false;
+            }
+            else
+            {
+                ErrorMessage.IsVisible = true;
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPTAnalyzer.Android", "PPTA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPTAnalyzer.iOS", "PPTAnalyzer\PPTAnalyzer.iOS\PPTAnalyzer.iOS.csproj", "{5BFF080E-2316-458E-BF2B-1A9A2DF89AA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPTAnalyzer", "PPTAnalyzer\PPTAnalyzer\PPTAnalyzer.csproj", "{426EF87E-620F-4218-80A6-DB19718457C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPTAnalyzer", "PPTAnalyzer\PPTAnalyzer\PPTAnalyzer.csproj", "{426EF87E-620F-4218-80A6-DB19718457C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

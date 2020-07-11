@@ -24,6 +24,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Show Report" Command="{Binding ShowReport}" HorizontalOptions="EndAndExpand"/>
         </StackLayout>
     </pages:ToolbarPage.Content>
 </pages:ToolbarPage>

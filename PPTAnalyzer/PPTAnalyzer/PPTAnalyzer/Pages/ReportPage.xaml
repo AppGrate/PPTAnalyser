@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:ToolbarPage  xmlns:pages="clr-namespace:PPTAnalyzer.Pages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PPTAnalyzer.Pages.ReportPage">
+    <pages:ToolbarPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="5">
+                    <Picker x:Name="GroupPicker"  ItemsSource="{Binding Groups}" ItemDisplayBinding="{Binding GroupName}" HorizontalOptions="FillAndExpand" SelectedItem="{Binding DefaultSelected, Mode=TwoWay}"/>
+                    <Button Text="Export" HorizontalOptions="EndAndExpand" VerticalOptions="Start" Command="{Binding Export}" CommandParameter="{Binding SelectedItem, Source={x:Reference GroupPicker}}"/>
+                </StackLayout>
+                <WebView VerticalOptions="FillAndExpand">
+                    <WebView.Source>
+                        <HtmlWebViewSource Html="{Binding DisplayHTML}"/>
+                    </WebView.Source>
+                </WebView>
+            </StackLayout>
+            <Grid BackgroundColor="#77000000" IsVisible="{Binding ShowExportBox}">
+                <Frame HasShadow="True" Margin="15">
+                    <StackLayout>
+                        <Button Text="x" FontAttributes="Bold" FontSize="Large" BackgroundColor="Transparent" TextColor="Red" Command="{Binding CloseExportBox}" HorizontalOptions="EndAndExpand"/>
+                        <Editor x:Name="CSVBox" Text="{Binding CSV}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsReadOnly="True" />
+                        <Button Text="Copy" Command="{Binding CopyToClipboard}" CommandParameter="{Binding Text, Source={x:Reference CSVBox}}" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
+    </pages:ToolbarPage.Content>
+</pages:ToolbarPage>

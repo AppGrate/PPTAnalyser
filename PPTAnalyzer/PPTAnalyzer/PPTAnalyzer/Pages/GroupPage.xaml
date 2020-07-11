@@ -10,10 +10,10 @@
              x:Class="PPTAnalyzer.Pages.GroupPage">
     <pages:ToolbarPage.Content>
         <StackLayout Padding="15">
-            <Grid HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
                 <Label Text="{Binding GroupName}" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
                 <Button Text="rename" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" TextColor="Blue" Command="{Binding RenameGroup}"/>
-            </Grid>
+            </StackLayout>
             <ListView ItemTapped="lstView_ItemTapped" SelectionMode="None" ItemsSource="{Binding People}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -23,10 +23,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Grid VerticalOptions="EndAndExpand">
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
                 <Button Text="Add Person" VerticalOptions="Center" HorizontalOptions="End" Command="{Binding AddPerson}"/>
                 <Button Text="Delete Group" VerticalOptions="Center" HorizontalOptions="Start" BackgroundColor="Red" Command="{Binding DeleteGroup}"/>
-            </Grid>
+            </StackLayout>
         </StackLayout>
     </pages:ToolbarPage.Content>
 </pages:ToolbarPage>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -15,6 +16,8 @@ namespace PPTAnalyzer.Models
         public static HomeModel Current = new HomeModel();
 
         public ICommand CreateGroup { get; private set; }
+
+        public ICommand ShowReport { get; private set; }
 
         public HomeModel()
         {
@@ -36,6 +39,17 @@ namespace PPTAnalyzer.Models
                          }
                      });
                  }
+             });
+
+            ShowReport = new Command(execute: async () =>
+             {
+                 await Application.Current.MainPage.Navigation.PushAsync(new ReportPage()
+                 {
+                     BindingContext = new ReportModel
+                     {
+                         Groups = new ObservableCollection<GroupModel>(Data)
+                     }
+                 });
              });
         }
     }

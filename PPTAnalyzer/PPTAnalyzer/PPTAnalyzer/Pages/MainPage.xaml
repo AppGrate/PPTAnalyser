@@ -5,29 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="PPTAnalyzer.Pages.MainPage"
-             BackgroundColor="White">
-
-    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Label Text="Physical Proficiency Test" HorizontalTextAlignment="Center" FontSize="Title" TextColor="Black"/>
-        <Label Text="Analyzer" HorizontalTextAlignment="Center" FontSize="Title" Margin="0,0,0,20" TextColor="Black"/>
-        <ImageButton Clicked="Login_Clicked" Aspect="AspectFit" Source="googlesignin.png" BackgroundColor="Transparent">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal">
-                        <VisualState.Setters>
-                            <Setter Property="Source" Value="googlesignin.png" />
-                        </VisualState.Setters>
-                    </VisualState>
-
-                    <VisualState x:Name="Pressed">
-                        <VisualState.Setters>
-                            <Setter Property="Source" Value="googlesigninpressed.png" />
-                        </VisualState.Setters>
-                    </VisualState>
-
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-        </ImageButton>
+             BackgroundImageSource="splashscreen">
+    <StackLayout Padding="20" VerticalOptions="End">
+        <Label Text="Invalid passcode!" TextColor="Red" HorizontalOptions="Center" VerticalOptions="End" IsVisible="False" x:Name="ErrorMessage"/>
+        <Button Text="Continue" Clicked="Skipped_Clicked" VerticalOptions="EndAndExpand"/>
     </StackLayout>
-
 </ContentPage>
